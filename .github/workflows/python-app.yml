@@ -52,6 +52,7 @@ jobs:
   build-infra:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.0
         with:
@@ -60,9 +61,6 @@ jobs:
 
       - name: setting up aws cdk
         run: |
-          pwd
-          ls
-          cd message-processer
           cd iac 
 
         
