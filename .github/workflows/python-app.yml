@@ -39,19 +39,15 @@ jobs:
       run: |
         cd message-processer
         pip install -r requirements.txt -t .
-    # - name: generating zip file for lambda
-    #   run: |
-    #     zip -r lambda.zip message-processer
+    - name: generating zip file for lambda
+      run: |
+        zip -r lambda.zip message-processer
 
     - name: uploading python Artifact
       uses: actions/upload-artifact@v3
       with:
         name: lambda.zip
-        path: message-processer
-      
-        
+        path: message-processer/lambda.zip
 
-      
-        
-        
 
+  
