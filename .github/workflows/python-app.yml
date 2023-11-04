@@ -33,7 +33,7 @@ jobs:
         cd "$APPLICATION_DIR"
         pipenv install
         pipenv requirements > requirements.txt
-        echo cat requirements.txt
+        cat requirements.txt
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
