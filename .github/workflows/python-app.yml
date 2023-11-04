@@ -38,5 +38,12 @@ jobs:
     - name: Install dependencies
       run: |
         cd message-processer
-        pip install -r requirements.txt
+        pip install -r requirements.txt -t .
+    - name: generating zip file for lambda
+      run: |
+        zip -r lambda.zip message-processer
+
+      
+        
+        
 
