@@ -30,17 +30,13 @@ jobs:
     - name: generate requirement file
       run: |
         pip install pipenv
-        pwd
         cd message-processer
-        pwd
         pipenv install
         pipenv requirements > requirements.txt
         cat requirements.txt
-        pwd
         
     - name: Install dependencies
       run: |
-        pwd
-        ls
+        cd message-processer
         pip install -r requirements.txt
 
