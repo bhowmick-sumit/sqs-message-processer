@@ -30,7 +30,7 @@ jobs:
     - name: generate requirement file
       run: |
         pip install pipenv
-        cd $APPLICATION_DIR
+        cd "$APPLICATION_DIR"
         pipenv install
         pipenv requirements > requirements.txt
         echo cat requirements.txt
