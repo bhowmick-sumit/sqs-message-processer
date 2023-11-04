@@ -29,10 +29,9 @@ jobs:
         python-version: "3.11"
     - name: generate requirement file
       run: |
-        echo ls
-        pip install pipenv
+        pip3 install pipenv
         cd $APPLICATION_DIR
-        #pipenv shell
+        pipenv shell
         pipenv requirements > requirements.txt
         echo cat requirements.txt
     - name: Install dependencies
