@@ -62,6 +62,7 @@ jobs:
         run: |
           pwd
           ls
+          cd message-processer
           cd iac 
 
         
