@@ -29,10 +29,10 @@ jobs:
         python-version: "3.11"
     - name: generate requirement file
       run: |
-        sudo pip3 install pipenv
+        pip install pipenv
         cd $APPLICATION_DIR
-        sudo pipenv shell
-        sudo pipenv requirements > requirements.txt
+        pipenv install
+        pipenv requirements > requirements.txt
         echo cat requirements.txt
     - name: Install dependencies
       run: |
