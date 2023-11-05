@@ -73,10 +73,5 @@ jobs:
           path: .
       - name: getting artifact
         run: |
-          pwd
-          ls
-
+          cdk deploy
           
-
-        
-        
