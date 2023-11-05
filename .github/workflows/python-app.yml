@@ -70,7 +70,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lambda.zip
-      - name: getting artifact
+      - name: deploying infrastructure
         run: |
-          cdk deploy
+          cdk deploy --require-approval never
           
