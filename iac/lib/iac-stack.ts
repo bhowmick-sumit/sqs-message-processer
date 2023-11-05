@@ -24,7 +24,7 @@ export class IacStack extends cdk.Stack {
 
     const lambda = new Function(this,"message-processer",{
       functionName: "message-processer",
-      code: Code.fromAsset("../message-processer.zip"),
+      code: Code.fromAsset("../lambda.zip"),
       handler: "src.index.handler",
       runtime: Runtime.PYTHON_3_11,
       deadLetterQueueEnabled: true,
