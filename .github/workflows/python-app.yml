@@ -61,9 +61,9 @@ jobs:
 
       - name: setting up aws cdk
         run: |
-          cd iac 
-          pwd
-          ls
+          cd iac
+          npm i -g typescript
+          npm i -g aws-cdk
           npm i --include=dev
           cdk deploy
           
