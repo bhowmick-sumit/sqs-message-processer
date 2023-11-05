@@ -62,7 +62,7 @@ jobs:
       - name: setting up aws cdk
         run: |
           cd iac 
-          npm i 
+          npm i --include=dev
           cdk deploy
           
 
