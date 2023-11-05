@@ -19,7 +19,6 @@ export class IacStack extends cdk.Stack {
     const mainQueue = new Queue(this,"main-queue",{
       queueName: "main-queue",
       visibilityTimeout: Duration.minutes(2),
-      retentionPeriod: Duration.days(2),
       deadLetterQueue: {
         maxReceiveCount: 1,
         queue: DLQueue
