@@ -11,24 +11,26 @@ export class IacStack extends cdk.Stack {
 
     // The code that defines your stack goes here
 
+    const DLQueue = new Queue(this,"main-queue-dlq",{
+      queueName: "main-queue-dlq",
+      retentionPeriod: Duration.days(2),
+    })
+
     const mainQueue = new Queue(this,"main-queue",{
       queueName: "main-queue",
       visibilityTimeout: Duration.minutes(2),
       retentionPeriod: Duration.days(2),
-    })
-
-    const deadLeterQueue = new Queue(this,"main-queue-dlq",{
-      queueName: "main-queue-dlq",
-      retentionPeriod: Duration.days(2)
+      deadLetterQueue: {
+        maxReceiveCount: 1,
+        queue: DLQueue
+      }
     })
 
     const lambda = new Function(this,"message-processer",{
       functionName: "message-processer",
       code: Code.fromAsset("../lambda.zip"),
       handler: "src.index.handler",
-      runtime: Runtime.PYTHON_3_11,
-      deadLetterQueueEnabled: true,
-      deadLetterQueue: deadLeterQueue
+      runtime: Runtime.PYTHON_3_11
     })
 
     const queueEventSource = new SqsEventSource(mainQueue)
