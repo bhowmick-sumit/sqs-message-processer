@@ -40,7 +40,7 @@ jobs:
         pip install -r requirements.txt -t .
     - name: generating zip file for lambda
       run: |
-        zip -r lambda.zip message-processer/.
+        zip -r -D lambda.zip message-processer/.
 
     - name: uploading python Artifact
       uses: actions/upload-artifact@v3
