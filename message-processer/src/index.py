@@ -20,7 +20,3 @@ def handler(event, context):
 
         else:
             raise "fileName not found"
-        
-
-
-handler(event={"Records":{"body":{},}},context={})
