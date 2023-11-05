@@ -81,5 +81,6 @@ jobs:
       - name: deploying infrastructure
         run: |
           cd iac
+          cdk bootstrap
           cdk synth
           cdk deploy --require-approval never
