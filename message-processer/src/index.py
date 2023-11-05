@@ -11,7 +11,7 @@ BUCKET_NAME = os.getenv("DESTINATION_BUCKET_NAME")
 
 
 def handler(event, context):
-    log.info("event: {event}")
+    log.info(f"event: {event}")
 
     for record in event["Records"]:
         message = record["body"]
