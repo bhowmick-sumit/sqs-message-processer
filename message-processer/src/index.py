@@ -11,6 +11,8 @@ BUCKET_NAME = os.getenv("DESTINATION_BUCKET_NAME")
 
 
 def handler(event, context):
+    Logger.info("event: {event}")
+
     for record in event["Records"]:
         message = record["body"]
         fileName = json.loads(message).get("fileName")
