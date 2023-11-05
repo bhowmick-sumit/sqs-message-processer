@@ -67,10 +67,9 @@ jobs:
           npm i --include=dev
       
       - name: downloading the artifact for lambda
-        uses: actions/upload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: lambda.zip
-          path: .
       - name: getting artifact
         run: |
           cdk deploy
