@@ -41,7 +41,7 @@ jobs:
     - name: generating zip file for lambda
       run: |
         cd $APPLICATION_DIR
-        zip -r -D lambda.zip *
+        zip -r ../lambda.zip *
 
     - name: uploading python Artifact
       uses: actions/upload-artifact@v3
