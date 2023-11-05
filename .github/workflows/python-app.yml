@@ -65,7 +65,16 @@ jobs:
           npm i -g typescript
           npm i -g aws-cdk
           npm i --include=dev
-          cdk deploy
+      
+      - name: downloading the artifact for lambda
+        uses: actions/upload-artifact@v3
+        with:
+          name: lambda.zip
+      - name: getting artifact
+        run: |
+          pwd
+          ls
+          
           
 
         
