@@ -62,9 +62,9 @@ jobs:
 
       - name: setting up aws cdk
         run: |
-          cd iac
           sudo npm i -g typescript
           sudo npm i -g aws-cdk
+          cd iac
           npm i --include=dev
       
       - name: downloading the artifact for lambda
@@ -73,6 +73,7 @@ jobs:
           name: lambda.zip
       - name: deploying infrastructure
         run: |
+          cd iac
           cdk synth
           cdk deploy --require-approval never
           
