@@ -162,3 +162,7 @@ cython_debug/
 # packages
 message-processer.zip
 .DS_Store
+
+
+# test files
+lambda.zip
