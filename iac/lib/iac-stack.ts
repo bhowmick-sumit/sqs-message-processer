@@ -52,6 +52,6 @@ export class IacStack extends cdk.Stack {
       resources: [destinationBucket.bucketArn]
     })
   )
-  destinationBucket.grantPut(lambda)
+  destinationBucket.grantWrite(lambda)
   }
 }
