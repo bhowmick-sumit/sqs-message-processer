@@ -34,10 +34,11 @@ export class IacStack extends cdk.Stack {
       handler: "src.index.handler",
       runtime: Runtime.PYTHON_3_11
     })
-    lambda.addEnvironment("DESTINATION_BUCKET_NAME", "my-destination-bucketk-kljajfkla")
+
     const destinationBucket = new Bucket(this,"destination-bucket",{
-    bucketName: "my-destination-bucketk-kljajfkla",
+    bucketName: "my-destination-bucket-kljajfkla",
   })
+  lambda.addEnvironment("DESTINATION_BUCKET_NAME", destinationBucket.bucketName)
 
   const queueEventSource = new SqsEventSource(mainQueue)
     lambda.addEventSource(queueEventSource)
