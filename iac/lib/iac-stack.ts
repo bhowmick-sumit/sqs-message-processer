@@ -48,7 +48,7 @@ export class IacStack extends cdk.Stack {
       actions: [
         "s3:PutObject"
       ],
-      resources: [lambda.functionArn]
+      resources: [destinationBucket.bucketArn]
     })
   )
   }
