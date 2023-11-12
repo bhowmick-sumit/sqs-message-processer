@@ -43,15 +43,15 @@ export class IacStack extends cdk.Stack {
   const queueEventSource = new SqsEventSource(mainQueue)
     lambda.addEventSource(queueEventSource)
 
-  lambda.addToRolePolicy(
-    new PolicyStatement({
-      effect: Effect.ALLOW,
-      actions: [
-        "s3:PutObject"
-      ],
-      resources: [destinationBucket.bucketArn]
-    })
-  )
+  // lambda.addToRolePolicy(
+  //   new PolicyStatement({
+  //     effect: Effect.ALLOW,
+  //     actions: [
+  //       "s3:PutObject"
+  //     ],
+  //     resources: [destinationBucket.bucketArn]
+  //   })
+  // )
   destinationBucket.grantWrite(lambda)
   }
 }
