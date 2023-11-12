@@ -5,6 +5,8 @@ import { Duration } from 'aws-cdk-lib';
 import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { StateMachineInput } from 'aws-cdk-lib/aws-codepipeline-actions';
 
 export class IacStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -39,5 +41,15 @@ export class IacStack extends cdk.Stack {
 
   const queueEventSource = new SqsEventSource(mainQueue)
     lambda.addEventSource(queueEventSource)
+
+  lambda.addToRolePolicy(
+    new PolicyStatement({
+      effect: Effect.ALLOW,
+      actions: [
+        "s3:PutObject"
+      ],
+      resources: [lambda.functionArn]
+    })
+  )
   }
 }
