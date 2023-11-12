@@ -4,6 +4,7 @@ import {Queue} from 'aws-cdk-lib/aws-sqs';
 import { Duration } from 'aws-cdk-lib';
 import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+import { Bucket } from 'aws-cdk-lib/aws-s3';
 
 export class IacStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -31,9 +32,12 @@ export class IacStack extends cdk.Stack {
       handler: "src.index.handler",
       runtime: Runtime.PYTHON_3_11
     })
+    lambda.addEnvironment("DESTINATION_BUCKET_NAME", "my-destination-bucketk-kljajfkla")
+    const destinationBucket = new Bucket(this,"destination-bucket",{
+    bucketName: "my-destination-bucketk-kljajfkla",
+  })
 
-    const queueEventSource = new SqsEventSource(mainQueue)
+  const queueEventSource = new SqsEventSource(mainQueue)
     lambda.addEventSource(queueEventSource)
-
   }
 }

@@ -18,7 +18,8 @@ def handler(event, context):
         fileName = json.loads(message).get("fileName")
         if fileName != None:
             log.info(f"the message is {message}")
-            # s3_resource.Bucket(BUCKET_NAME).put_object(Key=fileName,Body=message)
+            s3_resource.Bucket(BUCKET_NAME).put_object(Key=fileName,Body=message)
 
         else:
             raise "fileName not found"
+        
