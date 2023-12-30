@@ -7,7 +7,7 @@ Architecture Diagram-
 
 
 ## Tech stack -
-* AWS CDK with Typescript (for IAC)
+* AWS CDK with Typescript (Infrastructure as Code)
 * Python 
 
 
