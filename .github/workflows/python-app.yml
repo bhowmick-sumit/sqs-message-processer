@@ -51,12 +51,20 @@ jobs:
         name: lambda.zip
         path: lambda.zip
 
-    - name: Create Release
-      id: create_release
-      uses: ncipollo/release-action@v1.14.0
+    # - name: Create Release
+    #   id: create_release
+    #   uses: ncipollo/release-action@v1.14.0
+    #   with:
+    #     tag: v1.0.0
+    #     artifacts: "lambda.zip"
+    
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@v5
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag: v1.0.0
-        artifacts: "lambda.zip"
+        title: v1.1.1
+        workdir: lambda.zip
   
   build-infra:
     runs-on: ubuntu-latest
