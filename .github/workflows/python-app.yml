@@ -57,14 +57,6 @@ jobs:
     #   with:
     #     tag: v1.0.0
     #     artifacts: "lambda.zip"
-    
-    - name: Create a Release
-      uses: elgohr/Github-Release-Action@v5
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        title: v1.1.1
-        workdir: lambda.zip
   
   build-infra:
     runs-on: ubuntu-latest
