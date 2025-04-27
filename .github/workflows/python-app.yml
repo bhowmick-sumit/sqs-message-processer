@@ -46,7 +46,7 @@ jobs:
         zip -r ../lambda.zip *
 
     - name: uploading python Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: lambda.zip
         path: lambda.zip
@@ -77,10 +77,10 @@ jobs:
           npm i --include=dev
       
       - name: downloading the artifact for lambda
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: lambda.zip
-          
+
       - name: deploying infrastructure
         run: |
           cd $INFRASTRUCTURE_DIR
