@@ -32,7 +32,14 @@ export class IacStack extends cdk.Stack {
       functionName: "message-processer",
       code: Code.fromAsset("../lambda.zip"),
       handler: "src.index.handler",
-      runtime: Runtime.PYTHON_3_11
+      runtime: Runtime.PYTHON_3_11,
+      environment: {
+        POWERTOOLS_METRICS_NAMESPACE: "MyApp",
+        POWERTOOLS_TRACE_DISABLED: "false",
+        POWERTOOLS_LOG_LEVEL: "DEBUG",
+        POWERTOOLS_LOGGER_LOG_EVENT: "true",
+        POWERTOOLS_METRICS_DISABLED: "true",
+      },
     })
 
     const destinationBucket = new Bucket(this,"destination-bucket",{
