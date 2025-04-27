@@ -86,6 +86,6 @@ jobs:
           cd $INFRASTRUCTURE_DIR
           cdk bootstrap
           cdk synth
-          cdk deploy --require-approval never
+          cdk deploy --cloudformation-execution-policies --require-approval never
 
 
