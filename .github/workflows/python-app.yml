@@ -50,13 +50,6 @@ jobs:
       with:
         name: lambda.zip
         path: lambda.zip
-
-    # - name: Create Release
-    #   id: create_release
-    #   uses: ncipollo/release-action@v1.14.0
-    #   with:
-    #     tag: v1.0.0
-    #     artifacts: "lambda.zip"
   
   build-infra:
     runs-on: ubuntu-latest
@@ -87,6 +80,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lambda.zip
+          
       - name: deploying infrastructure
         run: |
           cd $INFRASTRUCTURE_DIR
