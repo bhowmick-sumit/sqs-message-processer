@@ -27,6 +27,6 @@ def handler(event, context):
             log.info(f"the message is {message}")
             s3_resource.Bucket(BUCKET_NAME).put_object(Key=fileName,Body=message)
         else:
-            metric.add_metric(name="messageFailed", unit="Count", value=0)
+            metric.add_metric(name="messageFailed", unit="Count", value=1)
             raise "fileName not found"
         
