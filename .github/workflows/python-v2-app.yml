@@ -42,7 +42,7 @@ jobs:
         ls
     - name: generating zip file for lambda
       run: |
-        zip -r ../lambda.zip *
+        zip -r lambda.zip *
 
     - name: uploading python Artifact
       uses: actions/upload-artifact@v4
