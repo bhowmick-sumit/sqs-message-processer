@@ -20,7 +20,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    working-directory: message-processer
+    defaults:
+      run:
+        working-directory: message-processer
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.11
